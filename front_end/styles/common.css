@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.image-container {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+	margin-right: 20px;
+    display: inline-block;
+}
+
+#camera {
+    background-image: url('images/icon_camera.png');
+}
+
+#closet {
+    background-image: url('images/icon_closet.png');
+}
+
+#basket {
+    background-image: url('images/icon_basket.png');
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #37032a; /* Change the background color as desired */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Change the hover color as desired */
+}
+}
