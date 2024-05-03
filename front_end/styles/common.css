@@ -1,11 +1,12 @@
 body {
-    margin: 0;
+    margin: 30;
     padding: 0;
+    background-color: black;
 }
 
 .image-container {
-    width: 300px;
-    height: 200px;
+    width: 450px;
+    height: 400px;
     background-size: cover;
     background-position: center;
     margin-bottom: 20px;
@@ -13,30 +14,30 @@ body {
     display: inline-block;
 }
 
-#camera {
-    background-image: url('images/icon_camera.png');
-}
-
 #closet {
-    background-image: url('images/icon_closet.png');
+    background-image: url("../images/closet.png");
 }
 
 #basket {
-    background-image: url('images/icon_basket.png');
+    background-image: url("../images/basket.png");
+}
 
+#image_upload {
+    background-image: url("../images/camera.png");
+    }
+    
 .button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #37032a; /* Change the background color as desired */
+    padding: 20px 20px;
+    background-color: #37032a;
     color: white;
     text-decoration: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #0056b3; /* Change the hover color as desired */
-}
+    background-color: #48044d;
 }

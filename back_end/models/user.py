@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" User Module for garment guru """
+"""This module defines a class User"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """Class for a User"""
-    username = ""
-    email = ""
-    password_hash = ""
+    """Class defining a user by attributes"""
+    email = ''
+    password = ''
+    first_name = ''
+    last_name = ''
