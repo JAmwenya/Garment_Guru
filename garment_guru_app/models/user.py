@@ -4,7 +4,7 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """Class defining a user by attributes"""
+    """This class defines a user by various attributes"""
     email = ''
     password = ''
     first_name = ''

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Garment Guru</title>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='styles/images/icon.ico') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/filters.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/common.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/footer.css') }}"/>
+		
+	</head>
+    <body>
+		<header>
+			<div id="header_logo"></div>
+		</header>
+
+		<div class="image-container" id="image_upload"> 
+			<a href="{{ url_for('upload') }}" class="button" id="upload-button">Upload Image</a>
+		</div>
+		<div class="image-container" id="closet">
+			<a href="{{ url_for('closet') }}" class="button" id="closet_button">My Closet</a>
+		</div>
+		<div class="image-container" id="basket">
+			<a href="{{ url_for('basket') }}" class="button" id="basket-button">My Laundry Basket</a>
+		</div>
+		
+		<footer>
+			<p>Garment Guru 2024, creator: Amwenya</p>
+			<script type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>
+		</footer>
+	</body>
+</html>

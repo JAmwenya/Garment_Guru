@@ -4,9 +4,9 @@ from models.base_model import BaseModel
 
 
 class Garment(BaseModel):
-    """class containing details to create a garment"""
+     """class containing details to create a garment"""
 
-    user_id = ""
-    name = ""
-    description = ""
-    image_url = ""
+     user_id = ""
+     name = ""
+     description = ""
+     image_url = ""

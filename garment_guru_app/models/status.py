@@ -4,8 +4,8 @@ from models.base_model import BaseModel
 
 
 class Status(BaseModel):
-    """Class for status (clean/dirty) of a garment"""
+     """Class for status (clean/dirty) of a garment"""
 
-    user_id = ""
-    garment_id = ""
-    is_clean = False
+     user_id = ""
+     garment_id = ""
+     is_clean = False

@@ -4,8 +4,8 @@ from models.base_model import BaseModel
 
 
 class Basket(BaseModel):
-    """Class for a Basket that holds dirty clothes images"""
+     """Class for a Basket that holds dirty clothes images"""
 
-    user_id = ""
-    dirty_clothes_images = []
-    location = ""
+     user_id = ""
+     dirty_clothes_images = []
+     location = ""

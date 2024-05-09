@@ -8,6 +8,8 @@ class BaseModel:
     """A base class for all garment guru models"""
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
+        if args:
+            pass
         if not kwargs:
             from models import storage
             self.id = str(uuid.uuid4())
@@ -31,7 +33,7 @@ class BaseModel:
         """Updates updated_at with current time when instance is changed"""
         from models import storage
         self.updated_at = datetime.now()
-        storage.save()
+        storage.save(self)
 
     def to_dict(self):
         """Convert instance into dict format"""
