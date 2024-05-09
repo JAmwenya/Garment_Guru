@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-from sqlalchemy import Column, Integer, LargeBinary, String
-from base_model import BaseModel
+from sqlalchemy import Column, Integer, String, LargeBinary
+from sqlalchemy.ext.declarative import declarative_base
 
-class StoreImage(BaseModel):
+Base = declarative_base()
+
+class StoreImage(Base):
     __tablename__ = 'images'
 
     id = Column(Integer, primary_key=True)
