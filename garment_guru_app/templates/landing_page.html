@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garment Guru</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='styles/images/icon.ico') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/filters.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/landing_page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/footer.css') }}"/>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Garment Guru</h1>
+        <p>We keep track of your clothes so that you don't have to.</p>
+    </div>
+
+    <div class="image-container" id="image_upload"> 
+        <a href="{{ url_for('upload') }}" class="button">Get Started</a>
+    </div>
+
+    <footer>
+        <p>Garment Guru 2024, creator: Amwenya</p>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>
+    </footer>
+</body>
+</html>
