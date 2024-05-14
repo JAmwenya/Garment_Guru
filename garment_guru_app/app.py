@@ -9,7 +9,6 @@ from models.status import Status
 from models.user import User
 
 app = Flask(__name__)
-file_storage = FileStorage() 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///images.db'
 db = SQLAlchemy(app)
 file_storage = FileStorage()
