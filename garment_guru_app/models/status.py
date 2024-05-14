@@ -7,5 +7,5 @@ class Status(BaseModel):
      """Class for status (clean/dirty) of a garment"""
 
      user_id = ""
-     garment_id = ""
+     image_id = ""
      is_clean = False
