@@ -1,8 +1,8 @@
 $(document).ready(function() {
     // Click event for uploading images
-    $("#image_upload a.button").click(function() {
-        // Simulate image upload and add it to the page
-        var imageUrl = "sqlite:///images.db";
+    $("#image_upload input[type='file']").change(function() {
+        var file = this.files[0];
+        var imageUrl = URL.createObjectURL(file);
         var imageElement = $("<img>").attr("src", imageUrl);
         $("#uploaded_images").append(imageElement);
     });
