@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-""" Status Module for garment guru """
+""" clothes status module for garment guru"""
+from sqlalchemy import Column, Integer, String, ForeignKey
 from models.base_model import BaseModel
 
-
 class Status(BaseModel):
-     """Class for status (clean/dirty) of a garment"""
-
-     user_id = ""
-     image_id = ""
-     is_clean = False
+    __tablename__ = 'statuses'
+        user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+            image_id = Column(Integer, ForeignKey('images.id'), nullable=False)
+                status = Column(String(128), nullable=False)  # 'clean' or
+                'dirty'

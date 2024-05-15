@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from models.database import StoreImage
+from sqlalchemy.orm import sessionmaker
 
 class FileStorage:
-    def __init__(self):
-        # Connecting to the database
-        self.engine = create_engine('sqlite:///images.db')
-        self.Session = sessionmaker(bind=self.engine)
-        self.session = self.Session()
+    def __init__(self, engine):
+        self.engine = engine
+        Session = sessionmaker(bind=self.engine)
+        self.session = Session()
+        self.images = self.session.query(StoreImage).all()
 
     # Return all images from the database
     def all(self):
@@ -24,4 +23,5 @@ class FileStorage:
         self.session.commit()
 
     def reload(self):
-        pass
+    # Refreshes all the data from the database
+        self.session.expire_all()
