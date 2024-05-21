@@ -49,14 +49,6 @@
 	border-radius: 4px;
 }
 
-.locations:hover .popover {
-	display: inline-block;
-}
-
-.filter_amenities:hover .popover {
-	display: inline-block;
-}
-
 h2 {
 	font-size: 16px;
 	padding-left: 30px;
