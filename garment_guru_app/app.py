@@ -1,22 +1,29 @@
-1 #!/usr/bin/python3
+#!/usr/bin/python3
 from flask import Flask, render_template, request, url_for, redirect
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from models.database import StoreImage
+from models.database import StoreImage, FileStorage, create_session
 from models.basket import Basket
 from models.closet import Closet
-from models.file_storage import FileStorage
 from models.status import Status
 from models.user import User
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///images.db'
+
 db = SQLAlchemy(app)
-file_storage = FileStorage()
+migrate = Migrate(app, db)
+
+# Push an application context so we can use `db.engine`
+with app.app_context():
+    db.create_all() # Create tables
+    session = create_session(db.engine)
+    file_storage = FileStorage(db.engine)
  
  # main page route
 @app.route('/')
 def garmentmain():
-    images = db.session.query(StoreImage).all()
+    images = file_storage.all()
     baskets = db.session.query(Basket).all()
     closets = db.session.query(Closet).all()
     users = db.session.query(User).all()
@@ -51,29 +58,7 @@ def show_user():
 @app.route('/upload_image', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
-        return 'No file par            db.session.add(closet)
-            basket = Basket.query.filter_by(image_id=image_id).first()
-            if basket:
-                db.session.delete(basket)
-        # If the status is dirty, move the garment to the basket
-        else:
-            basket = Basket.query.filter_by(image_id=image_id).first()
-            if not basket:
-                basket = Basket(image_id=image_id)
-                db.session.add(basket)
-            closet = Closet.query.filter_by(image_id=image_id).first()
-            if closet:
-                db.session.delete(closet)
-    else:
-        # Create a new status entry
-        status = Status(image_id=image_id, is_clean=True)
-        db.session.add(status)
-    db.session.commit()
-    # Redirect back to the previous page
-    return redirect(request.referrer or url_for('index'))
-
-if __name__ == '__main__':
-    app.run(debug=True)t'
+        return 'No file part'
     file = request.files['file']
     if file.filename == '':
         return 'No selected file'
@@ -98,4 +83,27 @@ def toggle_status(image_id):
             closet = Closet.query.filter_by(image_id=image_id).first()
             if not closet:
                 closet = Closet(image_id=image_id)
-    
+                db.session.add(closet)
+            basket = Basket.query.filter_by(image_id=image_id).first()
+            if basket:
+                db.session.delete(basket)
+        # If the status is dirty, move the garment to the basket
+        else:
+         
+            basket = Basket.query.filter_by(image_id=image_id).first()
+            if not basket:
+                basket = Basket(image_id=image_id)
+                db.session.add(basket)
+            closet = Closet.query.filter_by(image_id=image_id).first()
+            if closet:
+                db.session.delete(closet)
+    else:
+        # Create a new status entry
+        status = Status(image_id=image_id, is_clean=True)
+        db.session.add(status)
+    db.session.commit()
+    # Redirect back to the previous page
+    return redirect(request.referrer or url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)    
